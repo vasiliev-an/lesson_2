@@ -32,11 +32,6 @@ MACHINES = {
                         :size => 250,
                         :port => 5
                 },
-                :sata6 => {
-                        :dfile => home + '/VirtualBox VMs/disks/sata6.vdi',
-                        :size => 250,
-                        :port => 6
-                },
 
 	}
 
@@ -78,9 +73,10 @@ Vagrant.configure("2") do |config|
 	      mkdir -p ~root/.ssh
               cp ~vagrant/.ssh/auth* ~root/.ssh
 	      yum install -y mdadm smartmontools hdparm gdisk
+	      sudo mdadm --zero-superblock --force /dev/sd{b,c,d,e,f}
+	      sudo mdadm --create --verbose /dev/md0 -l 5 -n 5 /dev/sd{b,c,d,e,f}     
   	  SHELL
 
       end
   end
 end
-
