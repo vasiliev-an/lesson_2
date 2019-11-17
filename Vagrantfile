@@ -6,17 +6,17 @@ MACHINES = {
   :otuslinux => {
         :box_name => "centos/7",
         :ip_addr => '192.168.11.101',
-	:disks => {
-		:sata1 => {
-			:dfile => home + '/VirtualBox VMs/disks/sata1.vdi', # Указываем где будут лежать файлы наших дисков
-			:size => 250,
-			:port => 1
-		},
-		:sata2 => {
+	           :disks => {
+		                    :sata1 => {
+			                  :dfile => home + '/VirtualBox VMs/disks/sata1.vdi', # Указываем где будут лежать файлы наших дисков
+                  			:size => 250,
+                  			:port => 1
+		            },
+		            :sata2 => {
                         :dfile => home + '/VirtualBox VMs/disks/sata2.vdi',
                         :size => 250,
-			:port => 2
-		},
+			                  :port => 2
+		            },
                 :sata3 => {
                         :dfile => home + '/VirtualBox VMs/disks/sata3.vdi',
                         :size => 250,
@@ -26,17 +26,17 @@ MACHINES = {
                         :dfile => home + '/VirtualBox VMs/disks/sata4.vdi',
                         :size => 250,
                         :port => 4
-                }
+                },
                 :sata5 => {
                         :dfile => home + '/VirtualBox VMs/disks/sata5.vdi',
                         :size => 250,
                         :port => 5
-                }
+                },
                 :sata6 => {
                         :dfile => home + '/VirtualBox VMs/disks/sata6.vdi',
                         :size => 250,
                         :port => 6
-                }
+                },
 
 	}
 
