@@ -36,7 +36,7 @@ mdadm --detail --scan --verbose | awk '/ARRAY/ {print}' >> /etc/mdadm/mdadm.conf
 mdadm /dev/md0 --fail /dev/sdf
 ```
 
-Посмотрим как это отразилось на RAID:
+Смотрим статус RAID:
 
 ```
 cat /proc/mdstat
@@ -73,13 +73,13 @@ parted /dev/md0 mkpart primary ext4 60% 80%
 parted /dev/md0 mkpart primary ext4 80% 100%
 ```
 
-Далее можно создать на этих партициях ФС:
+Создаём на этих партициях ФС:
 
 ```
 for i in $(seq 1 5); do sudo mkfs.ext4 /dev/md0p$i; done
 ```
 
-И смонтировать их по каталогам
+Монтируем их по каталогам
 
 ```
 mkdir -p /raid/part{1,2,3,4,5}
